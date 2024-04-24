@@ -23,4 +23,4 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: SonarCloud Scan
-        run: mvn sonar:sonar -Dsonar.organization=YOUR_ORGANIZATION_KEY -Dsonar.projectKey=YOUR_PROJECT_KEY -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: mvn sonar:sonar -Dsonar.organization=thabataorbeteli -Dsonar.projectKey=thabataorbeteli_CP2-QA -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
