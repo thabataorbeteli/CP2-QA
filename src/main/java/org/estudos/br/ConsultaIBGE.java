@@ -23,13 +23,13 @@ public class ConsultaIBGE {
     /**
      * Método para consultar informações de um estado específico.
      *
-     * @param uf A sigla do estado a ser consultado.
+     * @param id O ID do estado a ser consultado.
      * @return Uma string contendo a resposta da API.
      * @throws IOException Se houver algum erro de conexão ou leitura.
      */
-    public static String consultarEstado(String uf) throws IOException {
+    public static String consultarEstado(Integer id) throws IOException {
         // Monta a URL completa para consulta do estado específico
-        URL url = new URL(ESTADOS_API_URL + uf);
+        URL url = new URL(ESTADOS_API_URL + id);
 
         // Abre uma conexão HTTP com a URL
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

@@ -67,13 +67,13 @@ public class Main {
      */
     private static void consultarEstado(Scanner scanner) throws IOException {
         // Imprime uma mensagem de instrução para o usuário
-        System.out.println("Digite a sigla do estado a ser consultado: ");
+        System.out.println("Digite o id do estado a ser consultado: ");
 
         // Lê a sigla do estado fornecida pelo usuário
-        String uf = scanner.next().toUpperCase();
+        int id = scanner.nextInt();
 
         // Chama o método consultarEstado da classe ConsultaIBGE para obter informações do estado
-        String resultado = ConsultaIBGE.consultarEstado(uf);
+        String resultado = ConsultaIBGE.consultarEstado(id);
 
         // Imprime o resultado da consulta
         System.out.println("Resultado da consulta: ");

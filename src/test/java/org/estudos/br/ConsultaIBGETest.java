@@ -16,17 +16,17 @@ public class ConsultaIBGETest {
     @DisplayName("Teste para consulta única de um estado")
     public void testConsultarEstado() throws IOException {
         // Arrange
-        String uf = "SP"; // Define o estado a ser consultado
+        Integer id = Integer.valueOf("12"); // Define o estado a ser cConsultarEstadoPorIdonsultado
 
-        // Act
-        String resposta = ConsultaIBGE.consultarEstado(uf); // Chama o método a ser testado
+        // ActConsultarEstadoPorId
+        String resposta = ConsultaIBGE.consultarEstado(id); // Chama o método a ser testado
 
         // Assert
         // Verifica se a resposta não está vazia
         assert !resposta.isEmpty();
 
         // Verifica se o status code é 200 (OK)
-        HttpURLConnection connection = (HttpURLConnection) new URL(ESTADOS_API_URL + uf).openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL(ESTADOS_API_URL + id).openConnection();
         int statusCode = connection.getResponseCode();
         assertEquals(200, statusCode, "O status code da resposta da API deve ser 200 (OK)");
     }
