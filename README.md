@@ -1,3 +1,12 @@
+# CP2 - QA - Thábata
+
+# Testes:
+Consulta de Região por ID: Testa a consulta de informações de uma região específica fornecendo seu ID.
+- Mocks:testes sejam executados independentemente da disponibilidade da API real
+Consulta de Estado: Testa a consulta de informações de um estado específico.
+Consulta de Distrito: Testa a consulta de informações de um distrito específico.
+------------------------------------------------------
+
 # API de Consulta do IBGE
 
 Este projeto é uma simples aplicação Java que utiliza a API do IBGE para consultar informações sobre estados brasileiros.
