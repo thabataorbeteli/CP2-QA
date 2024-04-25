@@ -3,8 +3,8 @@
 # Testes:
 Consulta de Região por ID: Testa a consulta de informações de uma região específica fornecendo seu ID.
 - Mocks:testes sejam executados independentemente da disponibilidade da API real
-Consulta de Estado: Testa a consulta de informações de um estado específico.
-Consulta de Distrito: Testa a consulta de informações de um distrito específico.
+Consulta de Estado por ID: Testa a consulta de informações de um estado específico.
+Consulta de Distrito por ID: Testa a consulta de informações de um distrito específico.
 ------------------------------------------------------
 
 # API de Consulta do IBGE
