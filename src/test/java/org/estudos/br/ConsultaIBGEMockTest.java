@@ -1,51 +1,46 @@
 package org.estudos.br;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ConsultaIBGEMockitoTest {
+public class ConsultaIBGEMockTest {
+    @Mock
+    private HttpURLConnection connectionMock;
 
-    @Test
-    @DisplayName("Teste para consulta de estado com Mockito")
-    public void testConsultarEstadoComMockito() throws IOException {
-        // Arrange
-        String uf = "SP"; // Define o estado a ser consultado
-        HttpURLConnection connectionMock = mock(HttpURLConnection.class);
-        when(connectionMock.getResponseCode()).thenReturn(200);
-        when(connectionMock.getInputStream()).thenReturn(new TestInputStream("Teste de resposta"));
+    // JSON de resposta simulada para estado com sigla "RO"
+    private static final String JSON_RESPONSE_STATE = "{\"id\":11,\"sigla\":\"RO\",\"nome\":\"Rondônia\",\"regiao\":{\"id\":1,\"sigla\":\"N\",\"nome\":\"Norte\"}}";
 
-        URL urlMock = mock(URL.class);
-        when(urlMock.openConnection()).thenReturn(connectionMock);
+    @BeforeEach
+    public void setup() throws IOException {
+        // Inicializa os mocks
+        MockitoAnnotations.openMocks(this);
 
-        // Act
-        String resposta = ConsultaIBGE.consultarEstado(uf); // Chama o método a ser testado
-
-        // Assert
-        // Verifica se a resposta não está vazia
-        assert !resposta.isEmpty();
-
-        // Verifica se o status code é 200 (OK)
-        HttpURLConnection connection = (HttpURLConnection) new URL(ConsultaIBGE.ESTADOS_API_URL + uf).openConnection();
-        int statusCode = connection.getResponseCode();
-        assertEquals(200, statusCode, "O status code da resposta da API deve ser 200 (OK)");
+        // Configura o comportamento do mock para retornar o JSON de resposta para estado com sigla "RO"
+        InputStream inputStreamStateRO = new ByteArrayInputStream(JSON_RESPONSE_STATE.getBytes());
+        when(connectionMock.getInputStream()).thenReturn(inputStreamStateRO);
     }
 
-    static class TestInputStream extends java.io.InputStream {
-        private ByteArrayInputStream stream;
+    @Test
+    @DisplayName("Consulta de Estado - Verificar Sigla")
+    public void testConsultarEstadoSiglaComMock() throws IOException {
+        // Sigla do estado a ser consultado
+        String estadoUf = "RO";
 
-        public TestInputStream(String string) {
-            this.stream = new ByteArrayInputStream(string.getBytes());
-        }
+        // Act (Execução do método a ser testado)
+        String response = ConsultaIBGE.consultarEstado(estadoUf);
 
-        @Override
-        public int read() {
-            return stream.read();
-        }
+        // Verificamos se o JSON retornado contém a sigla correta
+        assertEquals(JSON_RESPONSE_STATE, response, "O JSON retornado não corresponde ao esperado.");
     }
 }
