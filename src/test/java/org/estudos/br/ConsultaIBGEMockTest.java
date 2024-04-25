@@ -34,6 +34,7 @@ public class ConsultaIBGEMockTest {
         when(connectionMock.getInputStream()).thenReturn(inputStreamStateRO);
     }
 
+    //TESTE 1
     @Test
     @DisplayName("Consulta de Estado - Verificar Sigla")
     public void testConsultarEstadoSiglaComMock() throws IOException {
@@ -47,6 +48,7 @@ public class ConsultaIBGEMockTest {
         assertEquals(JSON_RESPONSE_STATE, response, "O JSON retornado não corresponde ao esperado.");
     }
 
+    //TESTE 2
     @Test
     @DisplayName("Consulta de Distrito - Verificar Resposta")
     public void testConsultarDistrito() throws IOException {
@@ -63,4 +65,28 @@ public class ConsultaIBGEMockTest {
         // Assert (Verifica se a resposta não está vazia)
         assert !response.isEmpty();
     }
+
+    //TESTE 3
+    @Test
+    @DisplayName("Teste para consulta única de Região por ID")
+    public void testConsultarRegiaoPorId() throws IOException {
+        // Arrange
+        Integer id = Integer.valueOf("1"); // Define o ID da região a ser consultada
+
+        // Act
+        String resposta = ConsultaIBGE.consultarRegiaoPorId(id); // Chama o método a ser testado
+
+        // Assert
+        // Verifica se a resposta não está vazia
+        assert !resposta.isEmpty();
+
+        // Verifica se o status code é 200 (OK)
+        HttpURLConnection connection = (HttpURLConnection) new URL(REGIOES_API_URL + id).openConnection();
+        int statusCode = connection.getResponseCode();
+        assertEquals(200, statusCode, "O status code da resposta da API deve ser 200 (OK)");
+    }
+}
+
+
+
 }
