@@ -2,7 +2,6 @@
 
 # Testes:
 1 - Consulta de Região por ID: Testa a consulta de informações de uma região específica fornecendo seu ID.
-- Mocks: testes sejam executados independentemente da disponibilidade da API real
 2 - Consulta de Estado por ID: Testa a consulta de informações de um estado específico.
 3 - Consulta de Distrito por ID: Testa a consulta de informações de um distrito específico.
 
