@@ -1,14 +1,14 @@
 # CP2 - QA - Thábata
 
 # Testes:
-Consulta de Região por ID: Testa a consulta de informações de uma região específica fornecendo seu ID.
-- Mocks:testes sejam executados independentemente da disponibilidade da API real
-Consulta de Estado por ID: Testa a consulta de informações de um estado específico.
-Consulta de Distrito por ID: Testa a consulta de informações de um distrito específico.
+1 - Consulta de Região por ID: Testa a consulta de informações de uma região específica fornecendo seu ID.
+- Mocks: testes sejam executados independentemente da disponibilidade da API real
+2 - Consulta de Estado por ID: Testa a consulta de informações de um estado específico.
+3 - Consulta de Distrito por ID: Testa a consulta de informações de um distrito específico.
 
-#SonarCloud:
-
+# SonarCloud:
 https://sonarcloud.io/project/overview?id=thabataorbeteli_CP2-QA
+
 ------------------------------------------------------
 
 # API de Consulta do IBGE
