@@ -5,6 +5,10 @@ Consulta de Região por ID: Testa a consulta de informações de uma região esp
 - Mocks:testes sejam executados independentemente da disponibilidade da API real
 Consulta de Estado por ID: Testa a consulta de informações de um estado específico.
 Consulta de Distrito por ID: Testa a consulta de informações de um distrito específico.
+
+#SonarCloud:
+
+https://sonarcloud.io/project/overview?id=thabataorbeteli_CP2-QA
 ------------------------------------------------------
 
 # API de Consulta do IBGE
